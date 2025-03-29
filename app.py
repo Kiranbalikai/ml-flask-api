@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import joblib  # For loading the model and vectorizer
 import numpy as np
-
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
@@ -16,11 +15,11 @@ def predict():
         data = request.json
         print("Received Data:", data)
 
-        if 'text' not in data:
-            return jsonify({"error": "Missing 'text' in request data"}), 400
+        if 'message' not in data:
+            return jsonify({"error": "Missing 'message' in request data"}), 400
 
-        # Extract email text
-        email_text = data['text']
+        # Extract email content (subject + message for better classification)
+        email_text = f"{data.get('subject', '')} {data['message']}"
 
         # Convert text into numerical features using the trained vectorizer
         features = vectorizer.transform([email_text])
@@ -31,6 +30,7 @@ def predict():
         return jsonify({"phishing": int(phishing_result)}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
