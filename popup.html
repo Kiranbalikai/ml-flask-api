@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Email Info</title>
+    <script src="popup.js" defer></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #ffffff;
+        width: 500px;
+        height: 420px;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        position: relative;
+        color: #1a1a1a;
+      }
+
+      h3 {
+        margin-top: 0;
+        text-align: center;
+        font-size: 24px;
+        font-weight: 700;
+        color: #2b2d42;
+        margin-bottom: 20px;
+      }
+
+      #Sender,
+      #Subject {
+        font-weight: 500;
+        font-size: 12px;
+        margin-bottom: 12px;
+        color: #444;
+        padding: 8px 12px;
+        background-color: #f4f4f4;
+        border-left: 4px solid #007bff;
+        border-radius: 4px;
+      }
+
+      #Message {
+        height: 190px;
+        overflow-y: auto;
+        background-color: #fafafa;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #333;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        margin-bottom: 70px; /* For safety box spacing */
+      }
+
+      #status {
+        position: absolute;
+        bottom: 15px;
+        left: 20px;
+        right: 20px;
+        background-color: #e0f7e9;
+        color: #0b6b3d;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #a8e4c8;
+        text-align: center;
+        font-weight: 600;
+        font-size: 16px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Email Phising Detection</h3>
+    <div id="Sender">Sender:&nbsp;</div>
+    <div id="Subject">Subject:&nbsp;</div>
+    <div id="Message">Message:</div>
+
+    <p id="status">No mail found</p>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing Detection ",
+  "version": "1.0",
+  "description": "Extracts email details when an email is opened in Gmail.",
+  "permissions": ["scripting", "activeTab", "tabs"],
+  "host_permissions": ["https://mail.google.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.google.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/logo.png",
+      "48": "icons/logo.png",
+      "128": "icons/logo.png"
+    }
+  }
+}
